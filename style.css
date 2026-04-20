@@ -7,6 +7,67 @@
     --val-gold: #FFD700;
 }
 
+/* --- HIDDEN ADMIN BUTTON --- */
+.hidden-admin-trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 3000; /* Above the hero screen */
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+/* --- MOBILE OPTIMIZATIONS --- */
+@media screen and (max-width: 768px) {
+    /* Responsive Titles */
+    .glitch-logo {
+        font-size: clamp(3rem, 15vw, 5rem) !important; /* Dynamically scales */
+        letter-spacing: 4px !important;
+    }
+
+    header h1 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Navigation Layout */
+    nav {
+        padding: 15px 20px !important;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .nav-system {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* Catalog Grid Adjustment */
+    .catalog {
+        grid-template-columns: 1fr !important; /* Single column on mobile */
+    }
+
+    /* Hero Content padding */
+    .hero-content {
+        padding: 0 20px;
+    }
+
+    .start-btn {
+        width: 100%;
+        padding: 15px 30px !important;
+        font-size: 1rem !important;
+    }
+
+    /* Sidebar sizing */
+    .sidebar {
+        width: 100% !important;
+        right: -100% !important;
+    }
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
