@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintLab | Customs</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="blue-theme">
+
+    <div id="hero-screen" class="hero-screen">
+        <div class="hero-content">
+            <h1 class="glitch-logo">PRINT<span>LAB</span> CUSTOMS</h1>
+            <p>// DATABASE_ENCRYPTED_v1.0</p>
+            <button class="start-btn disabled-btn" disabled>
+                [ UNDER MAINTENANCE ]
+            </button>
+        </div>
+    </div>
+
+    <div class="vanguard-line"></div>
+
+    <nav>
+        <div class="logo">PRINT<span>LAB</span></div>
+        <div class="nav-system">
+            <div class="system-status">// STATUS: OPERATIONAL</div>
+            <div class="dropdown">
+                <button class="dropbtn">[ SECTIONS ]</button>
+                <div class="dropdown-content">
+                    <a href="index.html">MAIN CATALOG</a>
+                    <a href="colors.html" class="color-link">
+                        PRINTLAB <span class="c-1">C</span><span class="c-2">O</span><span class="c-3">L</span><span class="c-4">O</span><span class="c-5">R</span>
+                    </a>
+                    <a href="ultra.html" class="ultra-link">PRINTLAB <span class="ultra-text">ULTRA</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>CUSTOM COMMISSIONS</h1>
+        <p>MODIFIED BLENDER DESIGNS & PERSONALIZED GEAR</p>
+    </header>
+
+    <main class="catalog">
+        <div class="card">
+            <div class="s-no">S.NO // C01</div>
+            <div class="info">
+                <h3>YOUR DESIGN HERE</h3>
+                <p>Custom Blender modeling services available soon.</p>
+                <button disabled>LOCKED</button>
+            </div>
+        </div>
+    </main>
+
+    <button id="cart-btn" onclick="toggleSidebar()">[ LIST: <span id="cart-count">0</span> ]</button>
+
+    <div id="summary-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>CUSTOM REQUESTS</h2>
+            <button onclick="toggleSidebar()" class="close-btn">X</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <button onclick="sendEmailOrder()" class="email-btn">
+            SEND CUSTOM REQUEST
+            <span class="btn-subtext">[ You will be redirected to Gmail.com ]</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

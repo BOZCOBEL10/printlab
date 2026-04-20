@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintLab | Ultra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="ultra-theme">
+
+    <div id="hero-screen" class="hero-screen">
+        <div class="hero-content">
+            <h1 class="glitch-logo">PRINT<span>LAB</span> <span class="ultra-text">ULTRA</span></h1>
+            <p>// ACCESS_RESTRICTED_LEVEL_5</p>
+            <button class="start-btn disabled-btn" disabled>
+                [ PREMIUM ACCESS ONLY ]
+            </button>
+        </div>
+    </div>
+
+    <div class="vanguard-line"></div>
+
+    <nav>
+        <div class="logo">PRINT<span>LAB</span></div>
+        <div class="nav-system">
+            <div class="system-status">// STATUS: OPERATIONAL</div>
+            <div class="dropdown">
+                <button class="dropbtn">[ SECTIONS ]</button>
+                <div class="dropdown-content">
+                    <a href="index.html">MAIN CATALOG</a>
+                    <a href="colors.html" class="color-link">PRINTLAB COLOR</a>
+                    <a href="customs.html" class="customs-link">PRINTLAB CUSTOMS</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="ultra-text">ULTRA COLLECTION</h1>
+        <p>1:1 SCALE REPLICAS & HIGH-FIDELITY PRINTS</p>
+    </header>
+
+    <main class="catalog">
+        <div class="card">
+            <div class="s-n">S.NO // U01</div>
+            <div class="info">
+                <h3>LEGENDARY ITEM</h3>
+                <p>Premium 4K Resin Print • Hand Finished</p>
+                <button disabled>LOCKED</button>
+            </div>
+        </div>
+    </main>
+
+    <button id="cart-btn" onclick="toggleSidebar()">[ LIST: <span id="cart-count">0</span> ]</button>
+
+    <div id="summary-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color: var(--val-gold)">ULTRA ORDERS</h2>
+            <button onclick="toggleSidebar()" class="close-btn">X</button>
+        </div>
+        <div id="cart-items" class="cart-items" style="color: var(--val-gold)"></div>
+        <button onclick="sendEmailOrder()" class="email-btn gold-btn">
+            SEND PREMIUM REQUEST
+            <span class="btn-subtext">[ Priority Processing Enabled ]</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

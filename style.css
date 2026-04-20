@@ -1,0 +1,594 @@
+/* Core Colors */
+:root {
+    --val-red: #ff4655;
+    --val-dark: #0f1923;
+    --val-grey: #1f2326;
+    --val-white: #ece8e1;
+    --val-gold: #FFD700;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--val-dark);
+    color: var(--val-white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.vanguard-line {
+    height: 4px;
+    background: var(--val-red);
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo span { color: var(--val-red); }
+
+header {
+    padding: 30px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+/* Floating Button */
+#cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    background: var(--val-red);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 70, 85, 0.4);
+    z-index: 100;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    right: -350px; /* Hidden by default */
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: var(--val-grey);
+    border-left: 2px solid var(--val-red);
+    transition: 0.4s ease;
+    z-index: 101;
+    padding: 20px;
+}
+
+.sidebar.active {
+    right: 0; /* Slide in */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    width: 30px;
+    border: none;
+    background: transparent;
+    color: var(--val-red);
+    font-size: 1.2rem;
+}
+
+.cart-items {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--val-red);
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.email-btn {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid var(--val-red);
+    color: var(--val-red);
+    padding: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.email-btn:hover {
+    background: var(--val-red);
+    color: white;
+}
+
+footer {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0b1219;
+}
+
+.patch-notes-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.patch-header {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--val-red);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.patch-content {
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 20px;
+}
+
+/* Hero Screen Styling */
+.hero-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--val-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Stays above everything */
+    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+    border-bottom: 2px solid var(--val-red);
+}
+
+/* The "Roll Up" trigger */
+.hero-screen.slide-up {
+    transform: translateY(-100%);
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.glitch-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8rem; /* Big and Bold */
+    font-weight: 900;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+    color: var(--val-white);
+    /* Mimicking your glitch image */
+    text-shadow: 2px 0 #ff4655, -2px 0 #00ffff;
+}
+
+.glitch-logo span {
+    color: var(--val-red);
+}
+
+.hero-content p {
+    color: #888;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+}
+
+.nav-system {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* The Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* The Button that triggers the menu */
+.dropbtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--val-white);
+    padding: 8px 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dropbtn:hover {
+    border-color: var(--val-red);
+    color: var(--val-red);
+}
+
+/* The hidden list of links */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    background-color: var(--val-grey);
+    min-width: 200px;
+    border: 1px solid var(--val-red);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 500;
+}
+
+/* Individual Letter Colors */
+.c-1 { color: #ff4655; } /* Red (Valorant Red) */
+.c-2 { color: #00ff00; } /* Green */
+.c-3 { color: #ff8c00; } /* Orange */
+.c-4 { color: #00bfff; } /* Blue */
+.c-5 { color: #a020f0; } /* Purple */
+
+/* Optional: Make the letters glow slightly on hover */
+.color-link:hover span {
+    text-shadow: 0 0 8px currentColor;
+    filter: brightness(1.2);
+}
+
+/* RGB Animated Text */
+.rgb-text {
+    background: linear-gradient(
+        to right, 
+        #ff0000, #00ff00, #0000ff, #ff0000
+    );
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: rgb-flow 4s linear infinite;
+    /* Optional: subtle glow to match your theme */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+/* --- BLUE THEME OVERRIDES --- */
+body.blue-theme {
+    --val-red: #00bfff; /* Overwrites global red with Electric Blue */
+}
+
+/* --- ULTRA THEME OVERRIDES --- */
+body.ultra-theme {
+    --val-red: #FFD700; /* Overwrites red with Gold */
+}
+
+body.ultra-theme .hero-screen {
+    border-bottom: 2px solid var(--val-gold); /* Gold bottom border */
+}
+
+body.ultra-theme .glitch-logo {
+    /* Gold/White glitch effect */
+    text-shadow: 2px 0 var(--val-gold), -2px 0 #ffffff;
+}
+
+body.ultra-theme .card:hover {
+    border: 1px solid var(--val-gold);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4); /* Stronger gold glow */
+}
+
+/* Premium Button Styling */
+.gold-btn {
+    border: 1px solid var(--val-gold) !important;
+    color: var(--val-gold) !important;
+}
+
+.gold-btn:hover {
+    background: var(--val-gold) !important;
+    color: var(--val-dark) !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+body.ultra-theme #cart-btn {
+    background: var(--val-gold);
+    color: var(--val-dark);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+body.blue-theme .hero-screen {
+    border-bottom: 2px solid #00bfff; /* Match blue theme */
+}
+
+body.blue-theme .glitch-logo {
+    /* Blue/Cyan glitch effect */
+    text-shadow: 2px 0 #00bfff, -2px 0 #ff4655;
+}
+
+body.blue-theme .card:hover {
+    border: 1px solid var(--val-red);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3); /* Blue glow */
+}
+
+body.blue-theme #cart-btn {
+    background: var(--val-red);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
+}
+
+@keyframes rgb-flow {
+    0% { background-position: 0% center; }
+    100% { background-position: 400% center; }
+}
+
+/* Ensure the glitch effect doesn't overlap the RGB transparency */
+body.purple-theme .rgb-text {
+    text-shadow: none !important;
+}
+
+/* --- HERO PURPLE OVERRIDE --- */
+/* --- HERO PURPLE OVERRIDE --- */
+body.purple-theme .hero-screen {
+    border-bottom: 2px solid #a020f0;
+}
+
+body.purple-theme .glitch-logo {
+    /* Purple glitch effect */
+    text-shadow: 2px 0 #a020f0, -2px 0 #00ffff;
+}
+
+/* --- DISABLED BUTTON STYLING --- */
+.disabled-btn {
+    border: 1px solid #444 !important;
+    color: #555 !important;
+    cursor: not-allowed !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
+}
+
+.disabled-btn:hover {
+    background: transparent !important;
+    transform: none !important;
+}
+
+.disabled-btn .btn-subtext {
+    color: #444 !important;
+}
+
+/* --- PURPLE THEME OVERRIDES --- */
+body.purple-theme {
+    --val-red: #a020f0; /* Overwrites the global red with purple */
+}
+
+/* Add a purple shadow to cards in the color section */
+body.purple-theme .card:hover {
+    border: 1px solid var(--val-red);
+    box-shadow: 0 0 20px rgba(160, 32, 240, 0.3);
+}
+
+/* Ensure the floating button stays purple on this page */
+body.purple-theme #cart-btn {
+    background: var(--val-red);
+    box-shadow: 0 5px 15px rgba(160, 32, 240, 0.4);
+}
+
+/* Gold Glow Styling */
+.ultra-text {
+    background: linear-gradient(90deg, #ffcc00, #fffa8a, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.6));
+    animation: gold-shimmer 2s infinite linear;
+    background-size: 200% auto;
+}
+
+/* The Shimmer Animation */
+@keyframes gold-shimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Hover effect for the whole link */
+.ultra-link:hover .ultra-text {
+    filter: drop-shadow(0 0 15px rgba(255, 204, 0, 1));
+    transition: 0.3s;
+}
+
+/* Optional: Adding a "Legendary" border on hover */
+.ultra-link:hover {
+    border-left: 3px solid #ffcc00;
+    padding-left: 13px !important; /* Adjusting for the border */
+}
+
+/* Ensure the link doesn't lose its style in the dropdown */
+.dropdown-content a.color-link {
+    display: flex;
+    gap: 4px; /* Tiny space between PRINTLAB and COLOR */
+    align-items: center;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: var(--val-white);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content a:hover {
+    background-color: var(--val-red);
+    color: var(--val-dark);
+}
+
+/* Show the menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.start-btn {
+    background: transparent;
+    border: 1px solid var(--val-red);
+    color: var(--val-red);
+    padding: 20px 60px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn:hover {
+    background: var(--val-red);
+    color: var(--val-dark);
+    box-shadow: 0 0 30px rgba(255, 70, 85, 0.5);
+}
+
+.patch-content.active {
+    max-height: 500px; /* Expands when active */
+    padding-bottom: 20px;
+}
+
+.update-entry {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.update-date {
+    color: #555;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    min-width: 60px;
+}
+
+.update-entry p {
+    font-size: 0.85rem;
+    color: var(--val-white);
+}
+
+#patch-arrow {
+    transition: transform 0.3s ease;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.email-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid var(--val-red);
+    color: var(--val-red);
+    padding: 15px 10px; /* More padding for the extra text */
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-subtext {
+    font-size: 0.6rem;
+    color: rgba(255, 70, 85, 0.7); /* Slightly faded red */
+    text-transform: uppercase;
+}
+
+/* The Grid */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px; /* Creates a thin line between cards */
+    background: rgba(255,255,255,0.1);
+}
+
+.card {
+    background: var(--val-dark);
+    padding: 30px;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    background: var(--val-grey);
+    border: 1px solid var(--val-red);
+}
+
+.s-no {
+    color: var(--val-red);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+.s-n {
+    color: var(--val-gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+.img-container img {
+    width: 100%; /* Your current width */
+    height: auto;
+    filter: grayscale(0.5); /* Your current filter */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease; /* Smoother zoom */
+}
+
+.card:hover img { filter: grayscale(0); transform: scale(1.5); }
+
+.info h3 { margin-top: 20px; letter-spacing: 1px; }
+.info p { font-size: 0.9rem; color: #888; margin-bottom: 20px; }
+
+button {
+    background: transparent;
+    border: 1px solid var(--val-white);
+    color: var(--val-white);
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: var(--val-white);
+    color: var(--val-dark);
+}
+
+.card:hover {
+    background: var(--val-grey);
+    border: 1px solid var(--val-red);
+    box-shadow: 0 0 20px rgba(255, 70, 85, 0.2); /* Subtle red glow */
+    cursor: crosshair; /* Tactical feel */
+}

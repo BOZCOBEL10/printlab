@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintLab | Color Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="purple-theme">
+<div id="hero-screen" class="hero-screen">
+    <div class="hero-content">
+        <h1 class="glitch-logo">PRINT<span>LAB</span> <span class="rgb-text">COLOR</span></h1>
+        <p>// FILAMENT_DATABASE_v1.0</p>
+        <button class="start-btn disabled-btn" disabled>[ UNDER WORK! ]</button>
+    </div>
+</div>
+
+    <div class="vanguard-line"></div>
+
+    <nav>
+        <div class="logo">PRINT<span>LAB</span></div>
+        <div class="nav-system">
+            <div class="system-status">// STATUS: OPERATIONAL</div>
+            <div class="dropdown">
+                <button class="dropbtn">[ SECTIONS ]</button>
+                <div class="dropdown-content">
+                    <a href="index.html">MAIN CATALOG</a>
+                <a href="customs.html" class="customs-link">
+    PRINTLAB <span class="c-4">CUSTOMS</span>
+</a>
+<a href="ultra.html" class="ultra-link">
+    PRINTLAB <span class="ultra-text">ULTRA</span>
+</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>COLOR PALETTE</h1>
+        <p>SELECT A FILAMENT COLOR FOR YOUR NEXT PRINT</p>
+    </header>
+
+    <main class="catalog">
+        <div class="card">
+            <div class="s-no">HEX // #A020F0</div>
+            <div class="img-container">
+                <img src="purple_swatch.png" alt="Deep Purple Filament">
+            </div>
+            <div class="info">
+                <h3>DEEP PURPLE</h3>
+                <p>Matte Finish • PLA</p>
+                <button onclick="copyToClipboard('PURPLE', event)">SELECT COLOR</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="s-no">HEX // #39FF14</div>
+            <div class="img-container">
+                <img src="green_swatch.png" alt="Neon Green Filament">
+            </div>
+            <div class="info">
+                <h3>NEON GREEN</h3>
+                <p>Glow-in-the-dark • PETG</p>
+                <button onclick="copyToClipboard('NEON-GREEN', event)">SELECT COLOR</button>
+            </div>
+        </div>
+    </main>
+
+    <button id="cart-btn" onclick="toggleSidebar()">[ LIST: <span id="cart-count">0</span> ]</button>
+
+    <div id="summary-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>SELECTED COLORS</h2>
+            <button onclick="toggleSidebar()" class="close-btn">X</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <button onclick="sendEmailOrder()" class="email-btn">
+            SEND SELECTION
+            <span class="btn-subtext">[ You will be redirected to Gmail.com ]</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

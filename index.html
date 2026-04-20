@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintLab | S.No Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="hero-screen" class="hero-screen">
+    <div class="hero-content">
+        <h1 class="glitch-logo">PRINT<span>LAB</span></h1>
+        <p>// PRECISION 3D MANUFACTURING</p>
+        <button class="start-btn" onclick="revealCatalog()">GET STARTED</button>
+    </div>
+</div>
+
+    <div class="vanguard-line"></div>
+
+<nav>
+    <div class="logo">PRINT<span>LAB</span></div>
+    
+    <div class="nav-system">
+        <div class="system-status">// STATUS: OPERATIONAL</div>
+
+        <div class="dropdown">
+            <button class="dropbtn">[ SECTIONS ]</button>
+            <div class="dropdown-content">
+                <a href="colors.html" class="color-link">
+    PRINTLAB <span class="c-3">C</span><span class="c-2">O</span><span class="c-3">L</span><span class="c-4">O</span><span class="c-5">R</span>
+</a>
+                <a href="customs.html" class="customs-link">
+    PRINTLAB <span class="c-4">CUSTOMS</span>
+</a>
+<a href="ultra.html" class="ultra-link">
+    PRINTLAB <span class="ultra-text">ULTRA</span>
+</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <header>
+        <h1>3D PRINT SHOWCASE</h1>
+        <p>SELECT A SERIAL NUMBER (S.NO)</p>
+    </header>
+
+    <main class="catalog">
+        <div class="card">
+            <div class="s-no">S.NO // 001</div>
+            <div class="img-container">
+                <img src="reaverkr.png" alt="reaver kerambit - white">
+            </div>
+            <div class="info">
+                <h3>REAVER KARAMBIT</h3>
+                <p>Black // White</p>
+                <button onclick="copyToClipboard('001')">COPY S.NO</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="s-no">S.NO // 002</div>
+            <div class="img-container">
+                <img src="https://via.placeholder.com/300x300/1f2326/ff4655?text=PRIME+VANDAL" alt="Item">
+            </div>
+            <div class="info">
+                <h3>NASA Mesh</h3>
+                <p>Satifying!</p>
+                <button onclick="copyToClipboard('002')">COPY S.NO</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="s-no">S.NO // 003</div>
+            <div class="img-container">
+                <img src="https://via.placeholder.com/300x300/1f2326/ff4655?text=PRIME+VANDAL" alt="Item">
+            </div>
+            <div class="info">
+                <h3>Mystery Dragon Egg</h3>
+                <p>Upto 10 different possible minifigures!</p>
+                <button onclick="copyToClipboard('003')">COPY S.NO</button>
+            </div>
+        </div>
+                <div class="card">
+            <div class="s-no">S.NO // 004</div>
+            <div class="s-n">Special Edition</div>
+            <div class="img-container">
+                <img src="https://via.placeholder.com/300x300/1f2326/ff4655?text=PRIME+VANDAL" alt="Item">
+            </div>
+            <div class="info">
+                <h3>Onimen</h3>
+                <p>"Whos next?"</p>
+                <button onclick="copyToClipboard('004')">COPY S.NO</button>
+            </div>
+        </div>
+                <div class="card">
+            <div class="s-no">S.NO // 005</div>
+            <div class="img-container">
+                <img src="https://via.placeholder.com/300x300/1f2326/ff4655?text=PRIME+VANDAL" alt="Item">
+            </div>
+            <div class="info">
+                <h3>NASA Mesh</h3>
+                <p>Satifying!</p>
+                <button onclick="copyToClipboard('005')">COPY S.NO</button>
+            </div>
+        </div>
+                        <div class="card">
+            <div class="s-no">S.NO // 006</div>
+                        <div class="s-n">Most Bought</div>
+            <div class="img-container">
+                <img src="https://via.placeholder.com/300x300/1f2326/ff4655?text=PRIME+VANDAL" alt="Item">
+            </div>
+            <div class="info">
+                <h3>Gear Bearing</h3>
+                <p>A very similar experience to fidget spinners.</p>
+                <button onclick="copyToClipboard('006')">COPY S.NO</button>
+            </div>
+        </div>
+                                <div class="card">
+            <div class="s-no">S.NO // 007</div>
+            <div class="img-container">
+                <img src="https://via.placeholder.com/300x300/1f2326/ff4655?text=PRIME+VANDAL" alt="Item">
+            </div>
+            <div class="info">
+                <h3>Gear Bearing</h3>
+                <p>A very similar experience to fidget spinners.</p>
+                <button onclick="copyToClipboard('007')">COPY S.NO</button>
+            </div>
+        </div>
+        <button id="cart-btn" onclick="toggleSidebar()">[ Currently chosen: <span id="cart-count">0</span> items. ]</button>
+
+<div id="summary-sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h2>SELECTED S.NOs</h2>
+        <button onclick="toggleSidebar()" class="close-btn">X</button>
+    </div>
+    <div id="cart-items" class="cart-items">
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+<button onclick="sendEmailOrder()" class="email-btn">SEND EMAIL ORDER</button>
+<span class="btn-subtext">[You will be redirected to Gmail.com to draft.]</span>
+<p class="sidebar-footer">Show this list or send the email!</p>
+</div>
+        
+    </main>
+
+    <script src="script.js"></script>
+    <footer>
+    <div class="patch-notes-container">
+        <button class="patch-header" onclick="togglePatchNotes()">
+            <span class="patch-title">// SYSTEM_UPDATES_v1.0</span>
+            <span id="patch-arrow">▲</span>
+        </button>
+        <div id="patch-content" class="patch-content">
+            <div class="update-entry">
+                <span class="update-date">APR 20</span>
+                <p>Currently only Black and White Filament is available. Sorry for the inconvenience</p>
+            </div>
+            <div class="update-entry">
+                <span class="update-date">APR 18</span>
+                <p>Fixed bed leveling issues.</p>
+            </div>
+            <div class="update-entry">
+                <span class="update-date">SYSTEM</span>
+                <p>Site launched. Welcome to the PrintLab showcase.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
