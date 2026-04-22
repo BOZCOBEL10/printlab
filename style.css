@@ -791,6 +791,18 @@ button:hover {
     cursor: crosshair; /* Tactical feel */
 }
 
+.safety-warning {
+    margin-top: 10px;
+    font-size: 0.6rem;
+    color: var(--val-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    text-align: center;
+    border: 1px dashed var(--val-red);
+    padding: 5px;
+}
+
 /* --- MOBILE OPTIMIZATIONS --- */
 @media screen and (max-width: 768px) {
     /* ... keep your other mobile styles ... */
