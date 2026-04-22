@@ -36,7 +36,9 @@ window.addEventListener('keydown', (e) => {
 
 
 function toggleSidebar() {
-    document.getElementById('summary-sidebar').classList.toggle('active');
+    const sidebar = document.querySelector('.sidebar');
+    // Toggle a class that changes the left/right position
+    sidebar.classList.toggle('active');
 }
 
 function copyToClipboard(sNo, event) {
@@ -65,20 +67,38 @@ function updateSidebar() {
     document.getElementById('cart-count').innerText = selectedItems.length;
 }
 
-function sendEmailOrder() {
-    if (selectedItems.length === 0) {
-        alert("Your list is empty! Copy some S.Nos first.");
+function submitOrder() {
+    // 1. Grab User Details
+    const name = document.getElementById('orderName').value;
+    const sClass = document.getElementById('orderClass').value;
+    const sSection = document.getElementById('orderSection').value;
+
+    // 2. Grab ALL Serial Numbers from the sidebar
+    // This finds every element containing "S.NO" inside the cart-items container
+    const cartEntries = document.querySelectorAll('.cart-items div, .cart-items p');
+    let itemIds = [];
+    
+    cartEntries.forEach(entry => {
+        if(entry.innerText.includes('S.NO')) {
+            itemIds.push(entry.innerText.trim());
+        }
+    });
+
+    // 3. Validation Logic
+    if(!name || !sClass || !sSection) {
+        alert("CRITICAL: OPERATOR DATA INCOMPLETE.");
+        return;
+    }
+    if(itemIds.length === 0) {
+        alert("ERROR: NO ITEMS DETECTED IN DEPLOYMENT LOG.");
         return;
     }
 
+    // 4. Format and Send
+    const productList = itemIds.join('\n- ');
     const email = "toetangle67@gmail.com";
-    const subject = encodeURIComponent("New 3D Print Order Request");
-    
-    // Format the list with line breaks (%0D%0A is the code for a new line in email)
-    const itemList = selectedItems.map(item => `• S.NO // ${item}`).join('%0D%0A');
-    const body = encodeURIComponent(`Yo! I want to order the following prints:`) + `%0D%0A%0D%0A${itemList}%0D%0A%0D%0AConfirm the price with me in school!`;
+    const subject = `PrintLab Order: ${name} (${sClass}-${sSection})`;
+    const body = `Yo I wanna order some stuff!\n\nI'm ${name}\nCLASS: ${sClass}\nSECTION: ${sSection}\n\nITEMS REQUESTED:\n- ${productList}`;
 
-    // Open the user's email client
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
-
