@@ -68,23 +68,19 @@ function updateSidebar() {
 }
 
 function submitOrder() {
-    // 1. Grab User Details
     const name = document.getElementById('orderName').value;
     const sClass = document.getElementById('orderClass').value;
     const sSection = document.getElementById('orderSection').value;
+    const shawarmaFund = document.getElementById('shawarmaCheck').checked; // Detect the checkbox
 
-    // 2. Grab ALL Serial Numbers from the sidebar
-    // This finds every element containing "S.NO" inside the cart-items container
     const cartEntries = document.querySelectorAll('.cart-items div, .cart-items p');
     let itemIds = [];
-    
     cartEntries.forEach(entry => {
         if(entry.innerText.includes('S.NO')) {
             itemIds.push(entry.innerText.trim());
         }
     });
 
-    // 3. Validation Logic
     if(!name || !sClass || !sSection) {
         alert("CRITICAL: OPERATOR DATA INCOMPLETE.");
         return;
@@ -94,11 +90,23 @@ function submitOrder() {
         return;
     }
 
-    // 4. Format and Send
+    // TACTICAL ADDITION: Shawarma Logic
+    let shawarmaLine = "";
+    if (shawarmaFund) {
+        shawarmaLine = "\nAdd 300 baiza to this order as a tip!\n";
+    }
+
     const productList = itemIds.join('\n- ');
     const email = "toetangle67@gmail.com";
     const subject = `PrintLab Order: ${name} (${sClass}-${sSection})`;
-    const body = `Yo I wanna order some stuff!\n\nI'm ${name}\nCLASS: ${sClass}\nSECTION: ${sSection}\n\nITEMS REQUESTED:\n- ${productList}`;
+    
+    const body = `TACTICAL ORDER DEPLOYED\n\nOPERATOR: ${name}\nCLASS: ${sClass}\nSECTION: ${sSection}\n${shawarmaLine}\nITEMS REQUESTED:\n- ${productList} \n--------------------------
+[ SAFETY & LIABILITY DISCLAIMER ]
+PrintLab items are intended for display and collection only. 
+Some models may have sharp edges or points. Handle with care. 
+PrintLab is not responsible for any injury or misuse of 3D-printed assets.
+(By submitting this order you agree to not blaming us if you do dumb stuff)
+--------------------------`;
 
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
