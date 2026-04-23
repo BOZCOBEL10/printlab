@@ -110,3 +110,15 @@ PrintLab is not responsible for any injury or misuse of 3D-printed assets.
 
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+function toggleGuide() {
+    const guide = document.getElementById('guide-box');
+    guide.classList.toggle('active');
+    
+    // Auto-scroll to show the guide if it's opened on small screens
+    if(guide.classList.contains('active')) {
+        setTimeout(() => {
+            guide.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
+    }
+}
