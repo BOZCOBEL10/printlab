@@ -67,45 +67,78 @@ function updateSidebar() {
     document.getElementById('cart-count').innerText = selectedItems.length;
 }
 
+function addCustomToLog() {
+    const fileLink = document.getElementById('customFileLink').value;
+    const details = document.getElementById('customDetails').value;
+    const cartItems = document.getElementById('cart-items');
+    
+    if(!fileLink && !details) {
+        alert("ERROR: TERMINAL DATA EMPTY.");
+        return;
+    }
+
+    const customEntry = document.createElement('div');
+    // Adding 'cart-item-entry' for the script to find
+    customEntry.className = 'cart-item-entry'; 
+    customEntry.innerHTML = `
+        <div style="border-left: 2px solid #00bfff; padding: 10px; margin-bottom: 10px; background: rgba(0,191,255,0.05);">
+            <p style="font-size: 0.8rem; color: #00bfff; font-weight: bold;">[ CUSTOM REQUEST ]</p>
+            <p style="font-size: 0.7rem;">LINK: ${fileLink || "N/A"}</p>
+            <p style="font-size: 0.7rem; opacity: 0.8;">DATA: ${details || "None"}</p>
+        </div>
+    `;
+    
+    cartItems.appendChild(customEntry);
+    updateCartCount(); 
+    document.getElementById('summary-sidebar').classList.add('active');
+
+    // Clear inputs
+    document.getElementById('customFileLink').value = '';
+    document.getElementById('customDetails').value = '';
+}
+
 function submitOrder() {
     const name = document.getElementById('orderName').value;
     const sClass = document.getElementById('orderClass').value;
     const sSection = document.getElementById('orderSection').value;
-    const shawarmaFund = document.getElementById('shawarmaCheck').checked; // Detect the checkbox
+    const shawarmaFund = document.getElementById('shawarmaCheck').checked;
 
-    const cartEntries = document.querySelectorAll('.cart-items div, .cart-items p');
-    let itemIds = [];
+    // Tactical Fix: Select all child divs in the cart regardless of text
+    const cartEntries = document.querySelectorAll('#cart-items .cart-item-entry');
+    let itemDetails = [];
+    
     cartEntries.forEach(entry => {
-        if(entry.innerText.includes('S.NO')) {
-            itemIds.push(entry.innerText.trim());
-        }
+        // This captures whatever text is inside the entry
+        itemDetails.push(entry.innerText.replace(/\n/g, " ").trim());
     });
 
     if(!name || !sClass || !sSection) {
         alert("CRITICAL: OPERATOR DATA INCOMPLETE.");
         return;
     }
-    if(itemIds.length === 0) {
+    
+    if(itemDetails.length === 0) {
         alert("ERROR: NO ITEMS DETECTED IN DEPLOYMENT LOG.");
         return;
     }
 
-    // TACTICAL ADDITION: Shawarma Logic
-    let shawarmaLine = "";
-    if (shawarmaFund) {
-        shawarmaLine = "\nAdd 300 baiza to this order as a tip!\n";
-    }
-
-    const productList = itemIds.join('\n- ');
+    let shawarmaLine = shawarmaFund ? "\nAdd 300 baiza to this order as a tip!\n" : "";
+    const productList = itemDetails.join('\n- ');
     const email = "toetangle67@gmail.com";
     const subject = `PrintLab Order: ${name} (${sClass}-${sSection})`;
     
-    const body = `TACTICAL ORDER DEPLOYED\n\nOPERATOR: ${name}\nCLASS: ${sClass}\nSECTION: ${sSection}\n${shawarmaLine}\nITEMS REQUESTED:\n- ${productList} \n--------------------------
+    const body = `TACTICAL ORDER DEPLOYED\n\nOPERATOR: ${name}\nCLASS: ${sClass}\nSECTION: ${sSection}\n${shawarmaLine}\nITEMS REQUESTED:\n- ${productList}\n\n--------------------------
+
 [ SAFETY & LIABILITY DISCLAIMER ]
-PrintLab items are intended for display and collection only. 
-Some models may have sharp edges or points. Handle with care. 
+
+PrintLab items are intended for display and collection only.
+
+Some models may have sharp edges or points. Handle with care.
+
 PrintLab is not responsible for any injury or misuse of 3D-printed assets.
+
 (By submitting this order you agree to not blaming us if you do dumb stuff)
+
 --------------------------`;
 
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -121,4 +154,30 @@ function toggleGuide() {
             guide.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 300);
     }
+}
+
+function addCustomToLog() {
+    const fileLink = document.getElementById('customFileLink').value;
+    const details = document.getElementById('customDetails').value;
+    const cartItems = document.getElementById('cart-items');
+    
+    if(!fileLink && !details) {
+        alert("ERROR: NO DATA DETECTED IN UPLOAD FIELDS.");
+        return;
+    }
+
+    const customEntry = document.createElement('div');
+    customEntry.className = 'cart-item-entry'; // Uses your existing styling
+    customEntry.innerHTML = `
+        <p><strong>CUSTOM:</strong> ${fileLink || "No Link"}</p>
+        <p style="font-size: 0.7rem; opacity: 0.7;">Note: ${details || "No details"}</p>
+        <hr style="border: 0.5px solid rgba(255,255,255,0.1)">
+    `;
+    
+    cartItems.appendChild(customEntry);
+    updateCartCount(); // Updates the "X Items" button
+    
+    // Clear fields
+    document.getElementById('customFileLink').value = '';
+    document.getElementById('customDetails').value = '';
 }
