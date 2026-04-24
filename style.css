@@ -940,3 +940,132 @@ button:hover {
         z-index: 9999 !important;
     }
 }
+
+/* ============================================================
+   PRINTLAB CUSTOMS: BLUE THEME OVERRIDES
+   ============================================================ */
+
+/* 1. The Marquee & Blinking Dot */
+.blue-theme .marquee-container {
+    background: #00eeff; /* Tactical Cyan */
+    color: #0f1923;
+    border-bottom: 2px solid #0f1923;
+}
+
+.blue-theme .status-dot {
+    background-color: #00eeff;
+    box-shadow: 0 0 10px #00eeff;
+}
+
+.blue-theme .start-btn:hover{
+    box-shadow: cyan;
+}
+
+/* 2. The Hero & Guide Box */
+.blue-theme .glitch-logo span {
+    color: #00eeff;
+}
+
+.blue-theme .guide-box.active {
+    border: 1px solid #00eeff;
+}
+
+.blue-theme .how-btn:hover {
+    border-color: #00eeff;
+    color: #00eeff;
+}
+
+.blue-theme .guide-footer {
+    color: #00eeff;
+    border-top: 1px solid rgba(0, 238, 255, 0.3);
+}
+
+/* 3. The Sidebar & Tactical Buttons */
+.blue-theme .sidebar {
+    border-left: 2px solid #00eeff;
+}
+
+.blue-theme .close-sidebar:hover {
+    color: #00eeff;
+}
+
+.blue-theme .email-btn {
+    background-color: #00eeff;
+    color: #0f1923;
+}
+
+.blue-theme .email-btn:hover {
+    background-color: #00bbcc;
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.4);
+}
+
+/* 4. The Shawarma Tip & Safety Warning */
+.blue-theme .shawarma-container {
+    border: 1px solid rgba(0, 238, 255, 0.3);
+    background: rgba(0, 238, 255, 0.05);
+}
+
+.blue-theme .checkmark {
+    border: 1px solid #00eeff;
+}
+
+.blue-theme .s-checkbox input:checked ~ .checkmark {
+    background-color: #00eeff;
+}
+
+.blue-theme .safety-warning {
+    color: #00eeff;
+    border: 1px dashed #00eeff;
+}
+
+/* 5. Cart Toggle Button */
+.blue-theme .cart-toggle-btn {
+    background-color: #00eeff;
+    color: #0f1923;
+}
+
+.blue-theme .cart-btn:hover{
+    background-color: white;
+    color: black;
+}
+
+/* CUSTOMS UPLOAD MODULE */
+.custom-input-group {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.t-textarea {
+    width: 100%;
+    height: 80px;
+    background: rgba(15, 25, 35, 0.8);
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    color: var(--val-white);
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    resize: none;
+    outline: none;
+}
+
+.t-textarea:focus {
+    border-color: #00bfff;
+}
+
+.blue-theme .add-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+    padding: 10px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blue-theme .add-btn:hover {
+    background: #00bfff;
+    color: #0f1923;
+}
