@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrintLab | S.No Catalog</title>
@@ -54,20 +54,16 @@
         <div class="system-status">// STATUS: OPERATIONAL</div>
         <span class="status-dot"></span>
 
-        <div class="dropdown">
-            <button class="dropbtn">[ SECTIONS ]</button>
-            <div class="dropdown-content">
                 <a href="colors.html" class="color-link">
-    PRINTLAB <span class="c-3">C</span><span class="c-2">O</span><span class="c-3">L</span><span class="c-4">O</span><span class="c-5">R</span>
+    <span class="linktext">PRINTLAB</span> <span class="c-3">C</span><span class="c-2">O</span><span class="c-3">L</span><span class="c-4">O</span><span class="c-5">R</span>
 </a>
                 <a href="customs.html" class="customs-link">
-    PRINTLAB <span class="c-4">CUSTOMS</span>
+    <span class="linktext">PRINTLAB</span> <span class="c-4">CUSTOMS</span>
 </a>
 <a href="ultra.html" class="ultra-link">
-    PRINTLAB <span class="ultra-text">ULTRA</span>
+    <span class="linktext">PRINTLAB</span> <span class="support-text">support</span>
 </a>
-            </div>
-        </div>
+            
     </div>
 </nav>
 
@@ -82,17 +78,6 @@
 </div>
 
     <main class="catalog">
-        <div class="card">
-            <div class="s-no">S.NO // 001</div>
-            <div class="img-container">
-                <img src="krmbit1.jpg" alt="reaver kerambit - white">
-            </div>
-            <div class="info">
-                <h3>REAVER KARAMBIT</h3>
-                <p>Black // White</p>
-                <button onclick="copyToClipboard('001')">COPY S.NO</button>
-            </div>
-        </div>
 
         <div class="card">
             <div class="s-no">S.NO // 002</div>
@@ -115,18 +100,6 @@
                 <h3>Mystery Dragon Egg</h3>
                 <p>Upto 10 different possible minifigures!</p>
                 <button onclick="copyToClipboard('003')">COPY S.NO</button>
-            </div>
-        </div>
-                <div class="card">
-            <div class="s-no">S.NO // 004</div>
-            <div class="s-n">Special Edition</div>
-            <div class="img-container">
-                <img src="oni final.png" alt="Item">
-            </div>
-            <div class="info">
-                <h3>Onimen</h3>
-                <p>"Whos next?"</p>
-                <button onclick="copyToClipboard('004')">COPY S.NO</button>
             </div>
         </div>
                 <div class="card">
@@ -206,56 +179,70 @@
         <h2>SELECTED S.NOs</h2>
         <button onclick="toggleSidebar()" class="close-btn">X</button>
     </div>
-    <div id="cart-items" class="cart-items">
-        </div>
-        <div id="cart-items" class="cart-items"></div>
-    <div class="tactical-order-info">
-    <input type="text" id="orderName" placeholder="OPERATOR NAME" class="t-input" required>
-    
-    <div class="t-row">
-        <select id="orderClass" class="t-select" required>
-            <option value="" disabled selected>CLASS</option>
-            <option value="1">CLASS 1</option>
-            <option value="2">CLASS 2</option>
-            <option value="3">CLASS 3</option>
-            <option value="4">CLASS 4</option>
-            <option value="5">CLASS 5</option>
-            <option value="6">CLASS 6</option>
-            <option value="7">CLASS 7</option>
-            <option value="8">CLASS 8</option>
-            <option value="9">CLASS 9</option>
-            <option value="10">CLASS 10</option>
-            <option value="11">CLASS 11</option>
-            <option value="12">CLASS 12</option>
-        </select>
+    <div id="cart-items" class="cart-items"></div>
 
-        <select id="orderSection" class="t-select" required>
-            <option value="" disabled selected>SEC</option>
-            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
-            <option value="D">D</option><option value="E">E</option><option value="F">F</option>
-            <option value="G">G</option><option value="H">H</option><option value="I">I</option>
-            <option value="J">J</option><option value="K">K</option><option value="L">L</option>
-            <option value="M">M</option><option value="N">N</option><option value="O">O</option>
-            <option value="P">P</option><option value="Q">Q</option><option value="R">R</option>
-            <option value="S">S</option><option value="T">T</option><option value="U">U</option>
-            <option value="V">V</option><option value="W">W</option><option value="X">X</option>
-            <option value="Y">Y</option><option value="Z">Z</option>
-        </select>
+    <!-- NEW VIEW SELECTOR -->
+    <div class="view-selector">
+        <button onclick="showOrderForm('inschool')">[ INSIDE ISM ]</button>
+        <button onclick="showOrderForm('others')">[ OTHERS.. ]</button>
     </div>
-</div>
-<div class="shawarma-container">
-    <label class="s-checkbox">
-        <input type="checkbox" id="shawarmaCheck">
-        <span class="checkmark"></span>
-        BUY US A SHAWARMA? (+300 BZ)
-    </label>
-</div>
-<button onclick="submitOrder()" class="email-btn">SEND EMAIL ORDER</button>
-<span class="btn-subtext">[You will be redirected to Gmail.com to draft.]</span>
-<div class="safety-warning">
-    // WARNING: HANDLE WITH CARE. SOME MODELS MAY HAVE SHARP EDGES.
-</div>
-<p class="sidebar-footer">Show this list or send the email!</p>
+
+    <!-- ORDER FORM CONTAINER -->
+    <div id="order-form-container" style="display:none;">
+        <div class="tactical-order-info">
+            <input type="text" id="orderName" placeholder="OPERATOR NAME" class="t-input" required>
+            
+            <div class="t-row">
+                <select id="orderClass" class="t-select" required>
+                    <option value="" disabled selected>CLASS</option>
+                    <option value="1">CLASS 1</option>
+                    <option value="2">CLASS 2</option>
+                    <option value="3">CLASS 3</option>
+                    <option value="4">CLASS 4</option>
+                    <option value="5">CLASS 5</option>
+                    <option value="6">CLASS 6</option>
+                    <option value="7">CLASS 7</option>
+                    <option value="8">CLASS 8</option>
+                    <option value="9">CLASS 9</option>
+                    <option value="10">CLASS 10</option>
+                    <option value="11">CLASS 11</option>
+                    <option value="12">CLASS 12</option>
+                </select>
+
+                <select id="orderSection" class="t-select" required>
+                    <option value="" disabled selected>SEC</option>
+                    <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+                    <option value="D">D</option><option value="E">E</option><option value="F">F</option>
+                    <option value="G">G</option><option value="H">H</option><option value="I">I</option>
+                    <option value="J">J</option><option value="K">K</option><option value="L">L</option>
+                    <option value="M">M</option><option value="N">N</option><option value="O">O</option>
+                    <option value="P">P</option><option value="Q">Q</option><option value="R">R</option>
+                    <option value="S">S</option><option value="T">T</option><option value="U">U</option>
+                    <option value="V">V</option><option value="W">W</option><option value="X">X</option>
+                    <option value="Y">Y</option><option value="Z">Z</option>
+                </select>
+            </div>
+        </div>
+        <div class="shawarma-container">
+            <label class="s-checkbox">
+                <input type="checkbox" id="shawarmaCheck">
+                <span class="checkmark"></span>
+                BUY US A SHAWARMA? (+300 BZ)
+            </label>
+        </div>
+        <button onclick="submitOrder()" class="email-btn">SEND EMAIL ORDER</button>
+        <span class="btn-subtext">[You will be redirected to Gmail.com to draft.]</span>
+        <div class="safety-warning">
+            // WARNING: HANDLE WITH CARE. SOME MODELS MAY HAVE SHARP EDGES.
+        </div>
+    </div>
+
+    <!-- COMING SOON CONTAINER -->
+    <div id="coming-soon-container" style="display:none; text-align:center; padding: 20px;">
+        <p>// STATUS: UNDER CONSTRUCTION</p>
+    </div>
+
+    <p class="sidebar-footer">Show this list or send the email!</p>
 </div>
         
     </main>
