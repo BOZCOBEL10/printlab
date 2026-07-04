@@ -19,7 +19,7 @@
         <div class="hero-content">
             <h1 class="glitch-logo">PRINT<span>LAB</span> CUSTOMS</h1>
             <p>// CUSTOM.PRINTS/-INITIALIZED</p>
-            <button class="start-btn blue-theme" onclick="revealCatalog()">
+            <button class="start-btn blue-theme" onclick="openTOS()">
                 [ GET CUSTOMED ] 
             </button>
             
@@ -42,16 +42,11 @@
         <div class="logo">PRINT<span>LAB</span></div>
         <div class="nav-system">
             <div class="system-status">// STATUS: OPERATIONAL</div>
-            <div class="dropdown">
-                <button class="dropbtn">[ SECTIONS ]</button>
-                <div class="dropdown-content">
                     <a href="index.html">MAIN CATALOG</a>
                     <a href="colors.html" class="color-link">
                         PRINTLAB <span class="c-1">C</span><span class="c-2">O</span><span class="c-3">L</span><span class="c-4">O</span><span class="c-5">R</span>
                     </a>
-                    <a href="ultra.html" class="ultra-link">PRINTLAB <span class="ultra-text">ULTRA</span></a>
-                </div>
-            </div>
+                    <a href="ultra.html" class="ultra-link">PRINTLAB <span class="support-text">support</span></a>
         </div>
     </nav>
 
@@ -84,41 +79,50 @@
             <h2>CUSTOM REQUESTS</h2>
             <button onclick="toggleSidebar()" class="close-btn">X</button>
         </div>
-        <div id="cart-items" class="cart-items"></div>
+   <div id="cart-items" class="cart-items"></div>
 
-        <div class="tactical-order-info">
-            <input type="text" id="orderName" placeholder="OPERATOR NAME" class="t-input" required>
-            <div class="t-row">
-        <select id="orderClass" class="t-select" required>
-            <option value="" disabled selected>CLASS</option>
-            <option value="1">CLASS 1</option>
-            <option value="2">CLASS 2</option>
-            <option value="3">CLASS 3</option>
-            <option value="4">CLASS 4</option>
-            <option value="5">CLASS 5</option>
-            <option value="6">CLASS 6</option>
-            <option value="7">CLASS 7</option>
-            <option value="8">CLASS 8</option>
-            <option value="9">CLASS 9</option>
-            <option value="10">CLASS 10</option>
-            <option value="11">CLASS 11</option>
-            <option value="12">CLASS 12</option>
-        </select>
-
-        <select id="orderSection" class="t-select" required>
-            <option value="" disabled selected>SEC</option>
-            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
-            <option value="D">D</option><option value="E">E</option><option value="F">F</option>
-            <option value="G">G</option><option value="H">H</option><option value="I">I</option>
-            <option value="J">J</option><option value="K">K</option><option value="L">L</option>
-            <option value="M">M</option><option value="N">N</option><option value="O">O</option>
-            <option value="P">P</option><option value="Q">Q</option><option value="R">R</option>
-            <option value="S">S</option><option value="T">T</option><option value="U">U</option>
-            <option value="V">V</option><option value="W">W</option><option value="X">X</option>
-            <option value="Y">Y</option><option value="Z">Z</option>
-        </select>
+    <!-- NEW VIEW SELECTOR -->
+    <div class="view-selector">
+        <button onclick="showOrderForm('inschool')">[ INSIDE ISM ]</button>
+        <button onclick="showOrderForm('others')">[ OTHERS.. ]</button>
     </div>
 
+    <!-- ORDER FORM CONTAINER -->
+    <div id="order-form-container" style="display:none;">
+        <div class="tactical-order-info">
+            <input type="text" id="orderName" placeholder="OPERATOR NAME" class="t-input" required>
+            
+            <div class="t-row">
+                <select id="orderClass" class="t-select" required>
+                    <option value="" disabled selected>CLASS</option>
+                    <option value="1">CLASS 1</option>
+                    <option value="2">CLASS 2</option>
+                    <option value="3">CLASS 3</option>
+                    <option value="4">CLASS 4</option>
+                    <option value="5">CLASS 5</option>
+                    <option value="6">CLASS 6</option>
+                    <option value="7">CLASS 7</option>
+                    <option value="8">CLASS 8</option>
+                    <option value="9">CLASS 9</option>
+                    <option value="10">CLASS 10</option>
+                    <option value="11">CLASS 11</option>
+                    <option value="12">CLASS 12</option>
+                </select>
+
+                <select id="orderSection" class="t-select" required>
+                    <option value="" disabled selected>SEC</option>
+                    <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+                    <option value="D">D</option><option value="E">E</option><option value="F">F</option>
+                    <option value="G">G</option><option value="H">H</option><option value="I">I</option>
+                    <option value="J">J</option><option value="K">K</option><option value="L">L</option>
+                    <option value="M">M</option><option value="N">N</option><option value="O">O</option>
+                    <option value="P">P</option><option value="Q">Q</option><option value="R">R</option>
+                    <option value="S">S</option><option value="T">T</option><option value="U">U</option>
+                    <option value="V">V</option><option value="W">W</option><option value="X">X</option>
+                    <option value="Y">Y</option><option value="Z">Z</option>
+                </select>
+            </div>
+        </div>
         <div class="shawarma-container">
             <label class="s-checkbox">
                 <input type="checkbox" id="shawarmaCheck">
@@ -126,19 +130,49 @@
                 BUY US A SHAWARMA? (+300 BZ)
             </label>
         </div>
-
-        <button onclick="submitOrder()" class="email-btn">SEND CUSTOM REQUEST</button>
-        <span class="btn-subtext">[You will be redirected to Gmail.com]</span>
-        
+        <button onclick="submitOrder()" class="email-btn">SEND EMAIL ORDER</button>
+        <span class="btn-subtext">[You will be redirected to Gmail.com to draft.]</span>
         <div class="safety-warning">
             // WARNING: HANDLE WITH CARE. SOME MODELS MAY HAVE SHARP EDGES.
         </div>
     </div>
+
+    <!-- COMING SOON CONTAINER -->
+    <div id="coming-soon-container" style="display:none; text-align:center; padding: 20px;">
+        <p>// STATUS: UNDER CONSTRUCTION</p>
+    </div>
+
+    <p class="sidebar-footer">Show this list or send the email!</p>
+</div>
 
     <button id="cart-btn" onclick="toggleSidebar()">
         [ Start the order proceedure. ]
     </button>
 
     <script src="script.js"></script>
+    <div id="tos-popup" class="popup-overlay" style="display:none;">
+    <div class="popup-content">
+        <h2>PrintLab CUSTOMS, how it works:</h2>
+        <div class="tos-text">
+            <p>Make sure you've read the TOS from the main catalogue, the same applies here too.</p>
+            
+            <h3>Option 1. Provide a link.</h3>
+            <p><strong>Provide us a link to the 3d file.</strong>PrintLab accepts links to 3D model sites or google drive/other hosting sites.</p>
+            <h3>Option 2. Mail us the file</h3>
+            <p><strong>If the file is small.</strong>Send a mail to printlab.shop@proton.me
+            <p><strong>Custom commisions are more prone to failure.</strong>Since these files have a lower probability of being optimized, there is a higher probabilty of delays due to failure.</p>
+            <p><strong>Nothing illegal or dangerous.</strong>PrintLab accepts zero liability for injuries caused by mechanical deployment or structural material failure during operation. In short terms, we cant accept anything illegal.</p>
+            
+            <h3>Ownership, copywrite, properties.</h3>
+            <p><strong>Intellectual Property & Copyright:</strong> PrintLab Customs operates on an "eyes-off, print-only" policy. By uploading or providing a 3D model file (.STL, .STEP, .OBJ, etc.), The Client legally warrants that they own the intellectual property rights, commercial licenses, or explicitly permitted rights to reproduce that file.</p>
+            <p><strong>Production Delays:</strong> To ensure the structural integrity of your orders, PrintLab enforces strict quality checks. If a print suffers from stringing, warping, structural failure, or hardware damage during production, we will restart the print. The Client accepts that these technical realities may cause unexpected production delays.</p>
+            <p><strong>Civil Conduct:</strong> PrintLab is a dedicated two-man operation. We enforce a zero-tolerance policy for abuse. The Client agrees to interact civilly and respectfully with all members of our team, support staff, and third-party delivery courier drivers.</p>
+            <p><strong>Right of Refusal:</strong> PrintLab reserves the absolute right to refuse or cancel services, orders, or communications at our sole discretion. This applies immediately to any individual who fails to maintain civil conduct, issues threats, or submits requests for dangerous, weaponized, or hazardous files.</p>
+            <p><strong>File Restrictions:</strong> PrintLab does not source, pirate, or distribute copyrighted files on behalf of clients.</p>
+            <p><strong>Structural Tolerances:</strong> Custom files provided by the client are printed exactly as designed. PrintLab is not responsible for design flaws in client-provided files that lead to higher deformity rates, weak failure points, or print errors.</p>
+        </div>
+        <button onclick="closeTOS()">[ I AGREE - PROCEED ]</button>
+    </div>
+</div>
 </body>
 </html>
