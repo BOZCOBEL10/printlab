@@ -18,9 +18,8 @@
         <h1 class="glitch-logo">PRINT<span>LAB</span></h1>
         <p>// SITE_INITIALIZED_._PREMIUM/PRINTS</p>
         
-        <button class="start-btn " onclick="revealCatalog()">
-            [ GET STARTED ]
-        </button>
+<!-- Change this button in your index.html -->
+        <button class="start-btn" onclick="openTOS()">[ GET STARTED ]</button>
         <button class="how-btn" onclick="toggleGuide()">[ HOW IT WORKS ]</button>
 
 <div id="guide-box" class="guide-box">
@@ -270,5 +269,33 @@
         </div>
     </div>
 </footer>
+<!-- Terms of Service Popup -->
+<div id="tos-popup" class="popup-overlay" style="display:none;">
+    <div class="popup-content">
+        <h2>PrintLab Terms of Service & Liability Agreement</h2>
+        <div class="tos-text">
+            <p>By checking the box or clicking "Buy" / "Place Order", you ("The Client") acknowledge and explicitly agree to the legally binding terms, conditions, and liability waivers outlined below.</p>
+            
+            <h3>1. Assumption of Risk and Waiver of Liability</h3>
+            <p><strong>General Use:</strong> PrintLab provides custom 3D printed items. The Client assumes sole responsibility for any harm, property damage, or physical injury resulting from the use or misuse of our prints.</p>
+            <p><strong>Sharp Edges:</strong> Due to the layer-by-layer nature of 3D printing and varying digital file geometries, prints may naturally feature sharp edges or corners. This is a byproduct of the manufacturing process, not a deliberate design flaw.</p>
+            <p><strong>Mechanical & Spring-Loaded Mechanisms:</strong> Items containing high tension, spring-loaded features, or launchers (including but not limited to phone holders and mechanical clickers) must be handled with extreme care. They must never be aimed at the face, eyes, or other sensitive body regions. PrintLab accepts zero liability for injuries caused by mechanical deployment or structural material failure during operation.</p>
+            
+            <h3>2. Manufacturing and Filament Variations</h3>
+            <p><strong>Natural Deformities:</strong> 3D printing is a highly technical manufacturing process. The Client acknowledges that minor cosmetic surface variations, layer lines, or slight deformities are normal characteristics of 3D prints. High-Speed PETG (PETG-HS) and other structural filaments are highly susceptible to atmospheric and ambient humidity conditions, which may slightly alter final aesthetics.</p>
+            <p><strong>Production Delays:</strong> To ensure the structural integrity of your OMR 70+ orders, PrintLab enforces strict quality checks. If a print suffers from stringing, warping, structural failure, or hardware damage during production, we will restart the print. The Client accepts that these technical realities may cause unexpected production delays.</p>
+            
+            <h3>3. PrintLab Customs (Custom File Uploads)</h3>
+            <p><strong>Intellectual Property & Copyright:</strong> PrintLab Customs operates on an "eyes-off, print-only" policy. By uploading or providing a 3D model file (.STL, .STEP, .OBJ, etc.), The Client legally warrants that they own the intellectual property rights, commercial licenses, or explicitly permitted rights to reproduce that file.</p>
+            <p><strong>File Restrictions:</strong> PrintLab does not source, pirate, or distribute copyrighted files on behalf of clients.</p>
+            <p><strong>Structural Tolerances:</strong> Custom files provided by the client are printed exactly as designed. PrintLab is not responsible for design flaws in client-provided files that lead to higher deformity rates, weak failure points, or print errors.</p>
+            
+            <h3>4. Code of Conduct and Right to Refuse Service</h3>
+            <p><strong>Civil Conduct:</strong> PrintLab is a dedicated two-man operation. We enforce a zero-tolerance policy for abuse. The Client agrees to interact civilly and respectfully with all members of our team, support staff, and third-party delivery courier drivers.</p>
+            <p><strong>Right of Refusal:</strong> PrintLab reserves the absolute right to refuse or cancel services, orders, or communications at our sole discretion. This applies immediately to any individual who fails to maintain civil conduct, issues threats, or submits requests for dangerous, weaponized, or hazardous files.</p>
+        </div>
+        <button onclick="closeTOS()">[ I AGREE - PROCEED ]</button>
+    </div>
+</div>
 </body>
 </html>
